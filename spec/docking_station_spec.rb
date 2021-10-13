@@ -25,11 +25,18 @@ describe DockingStation do
   it 'not release a bike, if there isnt one' do
     my_docking_station = DockingStation.new
     expect{my_docking_station.release_bike}.to raise_error('No bikes available')
-    # eq ('No bikes availible')
-
   end
+
+  it 'Do not dock a bike, if the dock is full' do
+    my_docking_station = DockingStation.new
+    my_bike = Bike.new
+    my_bike2 =Bike.new
+    my_docking_station.dock(my_bike)
+    expect{my_docking_station.dock(my_bike2)}.to raise_error('No space available')
+  end
+
 end
 
 # Write RSpec tests that expect errors
 # Use fail or raise to raise an error
-# Use a 'guard condition'
+# # Use a 'guard condition'

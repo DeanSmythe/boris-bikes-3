@@ -4,6 +4,7 @@ class DockingStation
 
   def initialize
     @docked_bikes = []
+    @max_bikes = 1
   end
 
   def release_bike
@@ -15,8 +16,12 @@ class DockingStation
   end
   
   def dock(bike)
+    unless @docked_bikes.length >= @max_bikes
     @docked_bikes.push(bike)
     return true
+    else
+      raise "No space available"
+    end
   end
 end
 
