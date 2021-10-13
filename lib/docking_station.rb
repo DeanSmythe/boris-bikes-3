@@ -2,26 +2,20 @@ class DockingStation
   
   attr_reader :docked_bikes
 
-# def docked_bikes
-#   @docked_bikes
-# end
-
   def initialize
-    test_array= []
-    puts test_array
-  @docked_bikes = test_array
-
+    @docked_bikes = []
   end
 
   def release_bike
-    return Bike.new
+    unless @docked_bikes.empty?
+      return Bike.new
+    else 
+      raise "No bikes available"
+    end
   end
   
   def dock(bike)
-    puts bike
-    puts @docked_bikes
     @docked_bikes.push(bike)
-    puts @docked_bikes
     return true
   end
 end
