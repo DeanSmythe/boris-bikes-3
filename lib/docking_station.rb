@@ -6,8 +6,11 @@ class DockingStation
 #   @docked_bikes
 # end
 
-  def intialize
-  @docked_bikes = []
+  def initialize
+    test_array= []
+    puts test_array
+  @docked_bikes = test_array
+
   end
 
   def release_bike
@@ -19,7 +22,7 @@ class DockingStation
     puts @docked_bikes
     @docked_bikes.push(bike)
     puts @docked_bikes
-    # return true
+    return true
   end
 end
 
